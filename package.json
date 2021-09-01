@@ -21,6 +21,8 @@
   "homepage": "https://github.com/LamSlimenstein/and-stems#readme",
   "description": "",
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "ethers": "^5.4.6",
     "hardhat": "^2.6.2"
   }
 }

@@ -1,13 +1,21 @@
-const Koa = require('koa');
-const cors = require('@koa/cors');
-const serve = require('koa-static');
-const router = require('./router.js');
+const Router = require('@koa/router');
+const router = new Router();
+const tokens = require('./tokens.json');
 
-const app = new Koa();
+router.get('/:tokenId', async (ctx, next) => {
+  const token = tokens[ctx.params.tokenId];
+  if(typeof token === 'undefined') {
+    ctx.status = 400;
+    ctx.body = {
+      error: `tokenId ${ctx.params.tokenId} does not exist`
+    };
+    return;
+  }
 
-app
-  .use(cors())
-  .use(serve('./images'))
-  .use(router.routes());
+  ctx.body = {
+    tokenId: ctx.params.tokenId,
+    result: token
+  };
+});
 
-app.listen(process.env.PORT || 3000);
+module.exports = router;
