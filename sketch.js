@@ -32,6 +32,7 @@ function draw() {
     v.mult(random(42,1000));
 
     // noFill();
+    count = 0;
 
     for (var x = 0; x < random(69,420); x++) {
         strokeWeight(random(343)*random(sin(cos(random(seed)),seed - 69)/random(4)));
@@ -51,7 +52,7 @@ function draw() {
             translate(width/random(2,8), height/2);
         }
     }
-    save(count+".png");
+    save(seed+".png");
     endShape();
 
     // noLoop();

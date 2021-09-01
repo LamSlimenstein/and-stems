@@ -1,0 +1,26 @@
+{
+  "name": "and-stems",
+  "version": "0.0.1",
+  "main": "hardhat-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LamSlimenstein/and-stems.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LamSlimenstein/and-stems/issues"
+  },
+  "homepage": "https://github.com/LamSlimenstein/and-stems#readme",
+  "description": "",
+  "devDependencies": {
+    "hardhat": "^2.6.2"
+  }
+}
