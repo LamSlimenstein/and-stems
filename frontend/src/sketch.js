@@ -1,16 +1,3 @@
-  function random_hash() {
-    let q = "0123456789abcdef", hash = '0x'
-    for (let i = 64; i > 0; i--) {
-        hash += q[Math.floor(Math.random()*q.length)]
-    }
-    return hash;
-}
-
-tokenData = {
-    "hash": random_hash(),
-    "tokenId": "123000456"
-}
-
 const seed = parseInt(tokenData.hash.slice(0, 16), 16);
 
 function setup() {

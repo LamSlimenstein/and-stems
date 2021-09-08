@@ -21,8 +21,21 @@
   "homepage": "https://github.com/LamSlimenstein/and-stems#readme",
   "description": "",
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.10",
     "ethers": "^5.4.6",
     "hardhat": "^2.6.2"
+  },
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.1.4",
+    "@nomiclabs/hardhat-etherscan": "^2.1.6",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.3.1",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "hardhat-deploy": "^0.9.0",
+    "hardhat-deploy-ethers": "^0.3.0-beta.10",
+    "hardhat-etherscan": "^1.0.1",
+    "hardhat-tracer": "^1.0.0-alpha.6",
+    "waffle": "0.0.4"
   }
 }
