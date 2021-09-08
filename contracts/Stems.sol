@@ -3,8 +3,9 @@ pragma solidity ^0.8.4;
 import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 import '@openzeppelin/contracts/utils/Counters.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract Stems is ERC721, Ownable {
+contract Stems is ERC721, Ownable, ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenNums;
 
@@ -27,6 +28,7 @@ contract Stems is ERC721, Ownable {
 
     mapping (bytes32 => uint256) public hashToId;
     mapping (uint256 => bytes32) internal idToHash; 
+    mapping (uint256 => string) public _tokenURIs;
 
     bool private is_dis_on;
 
@@ -61,10 +63,14 @@ contract Stems is ERC721, Ownable {
         return true;
     }
 
-    function setBaseURI(string memory _baseURI) public onlyOwner {
-        baseURI = _baseURI;
+    function _burn(uint256 tokenId) internal virtual override(ERC721, ERC721URIStorage) {
+        return ERC721URIStorage._burn(tokenId);
     }
 
+    function tokenURI(uint256 tokenId) public view virtual override(ERC721, ERC721URIStorage) returns (string memory) {
+        return ERC721URIStorage.tokenURI(tokenId);
+    }
+    
     function mintStem() external payable started apeable returns (uint256 _tokenId) {
         address _forager = msg.sender;
 
@@ -82,6 +88,7 @@ contract Stems is ERC721, Ownable {
         hashToId[hash] = _tokenId;
 
         _safeMint(_forager, _tokenId);
+        _setTokenURI(_tokenId, _baseURI());
 
         emit ForagedStem(_forager, _tokenId);
 

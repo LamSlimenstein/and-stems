@@ -8,7 +8,7 @@ const web3 = createAlchemyWeb3(API_URL);
 
 const contract = require("../src/artifacts/contracts/Stems.sol/Stems.json");
 console.log(JSON.stringify(contract.abi));
-const contractAddress = "0x6D17091009D91ffc967bC57d959C9E412c6cF776";
+const contractAddress = "0x1A565507903C81FBC617bD5483440b8c39789606";
 const stemsContract = new web3.eth.Contract(contract.abi, contractAddress);
 
 async function mintStem() {
