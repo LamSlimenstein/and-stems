@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     const init = async () => {
       const { stem } = await getBlockchain();
-      const tokenURI = await stem.tokenURI(0);
+      const tokenURI = await stem.tokenURI(tokenId);
       const { data } = await axios.get(tokenURI);
       setTokenInfo(data.result);
     };
